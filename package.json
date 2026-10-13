@@ -1,0 +1,14 @@
+{
+  "name": "auvira-landing",
+  "version": "1.0.0",
+  "description": "The personalized coordination layer for hormonal health - Starting with PMOS in Singapore",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "npx vite build",
+    "preview": "npx vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}

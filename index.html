@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auvira — Personalised hormonal health and cycle insights</title>
+  <meta name="description" content="Auvira connects women in Singapore with cycle-aware insights, Asian-calibrated hormone insights, and trusted PMOS care specialists. Coming soon to Singapore.">
+  <meta name="keywords" content="Auvira, PMOS Singapore, PCOS, hormonal health, cycle tracking, Takshma Patel">
+  
+  <!-- Fonts: Cormorant Garamond for headings, Manrope for body and UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/auvira_logo_mark.png">
+</head>
+<body class="theme-champagne">
+  <!-- Header / Navigation -->
+  <header class="site-header" id="header">
+    <div class="header-inner container">
+      <a href="#" class="brand-link" aria-label="Auvira Home">
+        <img src="assets/auvira_logo_mark.png" alt="Auvira gold swirl logo" class="brand-logo-img">
+        <span class="brand-wordmark">
+          <span class="wordmark-au">Au</span><span class="wordmark-vira">vira</span>
+        </span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="#why-pmos" class="nav-link">What is PMOS?</a>
+        <a href="#asian-gap" class="nav-link">The Asian gap</a>
+        <a href="#solution" class="nav-link">How it works</a>
+        <a href="#app-preview" class="nav-link">Inside the app</a>
+        <a href="#care-team" class="nav-link">Care team</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#screener" class="btn-text-link header-screener-link" hidden>Hormone check</a>
+        <a href="#hero" class="btn btn-primary btn-sm" id="headerInterestBtn">Register interest</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-aura-glow" aria-hidden="true"></div>
+      <div class="hero-flow-backdrop" aria-hidden="true">
+        <img src="assets/auvira_flow_exact_auvira.svg" alt="Auvira exact topological fluid stream design in Champagne Gold" class="hero-flow-svg hero-exact-flow-img" id="heroFlowBackdropImg" loading="eager">
+      </div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            The personalised coordination layer for <span class="title-em">hormonal wellbeing</span>.
+          </h1>
+          
+          <p class="hero-subtext">
+            Starting with PMOS for women in Singapore. From dismissed symptoms and conflicting advice to verified answers and a coordinated care plan in weeks.
+          </p>
+
+          <div class="hero-cta-group">
+            <form class="interest-form" id="interestForm" novalidate>
+              <label class="sr-only" for="interestEmail">Email address</label>
+              <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <input type="email" name="email" id="interestEmail" class="interest-input" placeholder="Your email address" autocomplete="email" required>
+              <button type="submit" class="btn btn-primary interest-btn">Register interest</button>
+            </form>
+            <p class="interest-note" id="interestNote" aria-live="polite">Coming soon to Singapore. Join the mailing list for launch news. No spam, unsubscribe anytime.</p>
+          </div>
+
+          <div class="hero-footnote">
+            <span class="badge-gleam">Singapore first</span>
+            <span class="hero-footnote-text">Calibrated for Asian metabolic baselines and hawker dietary realities.</span>
+          </div>
+
+          <div class="hero-palette-control" aria-label="Background design palette preview">
+            <span class="palette-control-label">Design palette:</span>
+            <div class="palette-pill-group">
+              <button type="button" class="palette-pill-btn active" data-theme="auvira">Champagne Gold</button>
+              <button type="button" class="palette-pill-btn" data-theme="dark_gold">Deep Night Gold</button>
+              <button type="button" class="palette-pill-btn" data-theme="original">Exact Reference (Navy &amp; Cyan)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-swirl-container">
+            <img src="assets/hero_swirl.jpg" alt="Auvira gold ribbon swirl sunset aura" class="hero-swirl-img">
+          </div>
+
+          <!-- Phone Screen Preview Card -->
+          <div class="hero-app-card">
+            <div class="card-screen-header">
+              <span class="screen-pill">Cycle day 14 · Around ovulation</span>
+              <span class="screen-time">Next period in ~14 days</span>
+            </div>
+            <h2 class="screen-card-title">Your energy follows your sleep by a day</h2>
+            <p class="screen-card-body">
+              On the three nights you slept under six hours this week, your energy dropped to 2 out of 5. Mid-cycle, your body is often more sensitive to short sleep.
+            </p>
+            <div class="screen-action-row">
+              <div class="screen-pill-tag">Today, try this</div>
+              <span>Screens down by 22:30 and lights out by 23:00.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: What is PMOS? (Pearl Background) -->
+    <section class="section section-pearl" id="why-pmos">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">What is PMOS?</span>
+          <h2 class="section-title">The most common hormonal condition, and it affects the whole body</h2>
+          <p class="section-desc max-w-prose">
+            PMOS (polyendocrine metabolic ovarian syndrome) is the new medical term for PCOS. The old name pointed only at the ovaries; the real condition is whole-body endocrine and metabolic dysregulation.
+          </p>
+        </div>
+
+        <!-- Asymmetric Clinical Ledger Layout (Anti-Slop: No Three Identical Cards) -->
+        <div class="pmos-ledger-layout">
+          <!-- Left Column: Core Clinical Shift & Rotterdam Reality -->
+          <div class="pmos-thesis-card">
+            <div class="card-flow-accent thesis-flow-accent" aria-hidden="true">
+              <img src="assets/auvira_flow_accent.svg" alt="" loading="lazy">
+            </div>
+            <div class="thesis-badge">The clinical shift</div>
+            <h3 class="thesis-title">Why the ovaries were always a distraction</h3>
+            <p class="thesis-body">
+              For decades, medicine treated polycystic ovaries as an isolated gynaecological issue. In reality, the ovaries are innocent responders—caught in the crossfire of disrupted neuroendocrine signalling, hypothalamic feedback loops, and chronic hyperinsulinemia.
+            </p>
+            <div class="thesis-callout">
+              <strong>Rotterdam criteria without the wait</strong>
+              <p>Diagnosis requires two of three clinical features: irregular ovulation, androgen excess, or polycystic morphology. Because ultrasound alone frequently misses lean Asian presentations, pattern synthesis across multiple cycles is essential.</p>
+            </div>
+            <div class="thesis-footer">
+              <span class="tag-meta">Lifelong and managed, not cured</span>
+            </div>
+          </div>
+
+          <!-- Right Column: 3 Interconnected Physiological Axes -->
+          <div class="pmos-axes-stack">
+            <div class="axis-item">
+              <div class="axis-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              </div>
+              <div class="axis-content">
+                <div class="axis-header">
+                  <h4 class="axis-title">Ovulatory axis</h4>
+                  <span class="axis-pill">Cycle irregularity</span>
+                </div>
+                <p class="axis-desc">
+                  Delayed follicular maturation, luteal phase progesterone drops, missed or prolonged cycles, and cyclical mood and energy dips.
+                </p>
+              </div>
+            </div>
+
+            <div class="axis-item">
+              <div class="axis-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+              <div class="axis-content">
+                <div class="axis-header">
+                  <h4 class="axis-title">Androgenic axis</h4>
+                  <span class="axis-pill">Physical signs</span>
+                </div>
+                <p class="axis-desc">
+                  Follicular sensitivity to free testosterone leading to persistent cystic acne along the jawline, hirsutism, and crown hair thinning.
+                </p>
+              </div>
+            </div>
+
+            <div class="axis-item">
+              <div class="axis-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <div class="axis-content">
+                <div class="axis-header">
+                  <h4 class="axis-title">Metabolic axis</h4>
+                  <span class="axis-pill">4.4x Asian risk</span>
+                </div>
+                <p class="axis-desc">
+                  Impaired cellular glucose uptake and compensatory insulin surges, driving rapid energy crashes, stubborn weight gain, and long-term diabetes vulnerability.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Evidence Ledger -->
+        <div class="stats-ledger-panel">
+          <div class="ledger-header">
+            <h3>Women with hormonal conditions are missed, dismissed and left alone</h3>
+            <p>From published clinical trials and Singapore healthcare surveys:</p>
+          </div>
+          <div class="ledger-grid">
+            <div class="ledger-item">
+              <span class="ledger-number">1 in 3</span>
+              <p>Women wait <strong>more than two years</strong> for a diagnosis.</p>
+              <span class="ledger-citation">Gibson-Helm et al., JCEM 2017</span>
+            </div>
+            <div class="ledger-item">
+              <span class="ledger-number">34%</span>
+              <p>Report their healthcare provider <strong>dismissed their symptoms</strong> (vs 21% of men).</p>
+              <span class="ledger-citation">Gallup-Pivotal Women's Health Survey</span>
+            </div>
+            <div class="ledger-item">
+              <span class="ledger-number">47%</span>
+              <p>See <strong>three or more doctors</strong> before anyone connects the pattern.</p>
+              <span class="ledger-citation">Human Reproduction Update</span>
+            </div>
+            <div class="ledger-item">
+              <span class="ledger-number">60.5%</span>
+              <p>Of Singapore clinicians surveyed <strong>could not identify PMOS features</strong>.</p>
+              <span class="ledger-citation">Annals of Medicine, Singapore 2022</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: The Asian Gap (Champagne Background) -->
+    <section class="section section-champagne" id="asian-gap">
+      <div class="container">
+        <div class="grid grid-2 items-center gap-xl">
+          <div class="gap-text-col">
+            <span class="eyebrow">The Asian gap</span>
+            <h2 class="section-title">Four reasons diagnosis takes years in Singapore</h2>
+            <p class="lead-text">
+              Universal clinical thresholds were built on Western Caucasian cohorts. Asian women present differently and are routinely told their numbers are "normal".
+            </p>
+
+            <!-- Anti-Slop: Replaced decorative numbers 01-04 with functional semantic indicators -->
+            <div class="gap-reasons-list">
+              <div class="gap-reason-item">
+                <div class="gap-icon-disc" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                </div>
+                <div class="gap-item-body">
+                  <strong>Thresholds built on Western women</strong>
+                  <p>Asian women are frequently lean but insulin-resistant, with milder body hair. Standard cut-offs tell them they're fine, delaying care until diabetes or fertility struggles arise.</p>
+                </div>
+              </div>
+
+              <div class="gap-reason-item">
+                <div class="gap-icon-disc" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="gap-item-body">
+                  <strong>No single biomarker test</strong>
+                  <p>Diagnosis requires two of three features over time. Biomarker research was never adequately funded: PMOS received only $215M from the NIH over a decade, vs $454M for rheumatoid arthritis.</p>
+                </div>
+              </div>
+
+              <div class="gap-reason-item">
+                <div class="gap-icon-disc" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div class="gap-item-body">
+                  <strong>Symptoms arrive at different doors</strong>
+                  <p>Acne to dermatology, periods to gynae, weight to the GP, mood to therapy. Each specialist treats an isolated symptom; the contraceptive pill often masks the rest.</p>
+                </div>
+              </div>
+
+              <div class="gap-reason-item">
+                <div class="gap-icon-disc" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="gap-item-body">
+                  <strong>Care starts only at the crisis</strong>
+                  <p>In Singapore, dedicated PMOS clinics sit inside KKH's IVF fertility centre. Healthier SG assigns family doctors only from age 40. Women aged 20 to 35 have no anchor.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gap-card-col">
+            <div class="insight-glow-card">
+              <div class="card-aura-glow" aria-hidden="true"></div>
+              <div class="card-flow-accent" aria-hidden="true">
+                <img src="assets/auvira_flow_accent.svg" alt="" loading="lazy">
+              </div>
+              <blockquote class="insight-quote">
+                "Hormones affect the whole body. Healthcare treats one organ, one visit, one at a time. Nobody is paid to own the whole picture, so she becomes her own coordinator, with the least information to do it."
+              </blockquote>
+              <div class="quote-signoff">
+                <span class="quote-dot" aria-hidden="true"></span>
+                <span>The root cause of fragmented care</span>
+              </div>
+            </div>
+
+            <div class="card-pearl hawker-card mt-lg">
+              <h3 class="card-heading">Dietary reality in Southeast Asia</h3>
+              <p class="card-text">
+                Western PCOS plans demand strict low-carb diets impossible to maintain in Singapore. Auvira's clinical dietitians build strategies calibrated for local hawker dining, white rice swaps, and insulin-balancing meals you can actually stick to.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: How It Works (Pearl Background) -->
+    <section class="section section-pearl" id="solution">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">How Auvira works</span>
+          <h2 class="section-title">Three root problems, three fixes, one coordinated engine</h2>
+          <p class="section-desc max-w-prose">
+            Auvira connects her longitudinal data, clinical trust, and daily lifestyle execution inside one continuous pathway.
+          </p>
+        </div>
+
+        <!-- Integrated Coordination Pipeline (Anti-Slop: No Three Identical Cards) -->
+        <div class="coordination-pipeline">
+          <div class="pipeline-card">
+            <div class="pipeline-badge">Phase 01 · Synthesis</div>
+            <div class="pipeline-problem">Problem: Fragmented data &amp; dismissed symptoms</div>
+            <h3 class="pipeline-heading">Her longitudinal hormone record</h3>
+            <p class="pipeline-body">
+              Cycles, symptoms, lab panels, and Garmin wearables synthesized together, read against Asian-calibrated metabolic baselines.
+            </p>
+            <div class="pipeline-tags-row">
+              <span class="pipeline-tag">Multi-cycle analysis</span>
+              <span class="pipeline-tag">HOMA-IR intervals</span>
+              <span class="pipeline-tag">Garmin vitals sync</span>
+            </div>
+          </div>
+
+          <div class="pipeline-bridge" aria-hidden="true">
+            <span class="bridge-arrow">→</span>
+          </div>
+
+          <div class="pipeline-card">
+            <div class="pipeline-badge">Phase 02 · Verification</div>
+            <div class="pipeline-problem">Problem: Late diagnosis &amp; revolving doors</div>
+            <h3 class="pipeline-heading">The right door, first time</h3>
+            <p class="pipeline-body">
+              A PMOS-trained GP or gynaecologist and guideline-based tests, with her multi-cycle clinical summary in hand. Answers in about two weeks.
+            </p>
+            <div class="pipeline-tags-row">
+              <span class="pipeline-tag">PMOS-trained doctors</span>
+              <span class="pipeline-tag">Comprehensive panels</span>
+              <span class="pipeline-tag">Answers in weeks</span>
+            </div>
+          </div>
+
+          <div class="pipeline-bridge" aria-hidden="true">
+            <span class="bridge-arrow">→</span>
+          </div>
+
+          <div class="pipeline-card">
+            <div class="pipeline-badge">Phase 03 · Execution</div>
+            <div class="pipeline-problem">Problem: Zero support between visits</div>
+            <h3 class="pipeline-heading">One coordinated care team</h3>
+            <p class="pipeline-body">
+              One 90-day plan across doctor, dietitian, cycle fitness, and health coach. Powered by a daily AI companion inside limits set by her care team.
+            </p>
+            <div class="pipeline-tags-row">
+              <span class="pipeline-tag">Care coordinator lead</span>
+              <span class="pipeline-tag">Hawker meal planning</span>
+              <span class="pipeline-tag">Daily cycle companion</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Inside the App (Champagne Background) -->
+    <section class="section section-champagne" id="app-preview">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Inside the app</span>
+          <h2 class="section-title">A calm, cycle-aware companion in your pocket</h2>
+          <p class="section-desc max-w-prose">
+            Auvira connects your daily symptoms to your cycle and sleep, helping you take action between doctor visits.
+          </p>
+        </div>
+
+        <div class="app-screens-grid">
+          <div class="screen-showcase-card">
+            <div class="screen-crop-wrap">
+              <img src="assets/screen_onboarding.png" alt="Auvira onboarding screen: What would you like help with?" class="screen-img">
+            </div>
+            <div class="screen-caption">
+              <strong>Personalised onboarding</strong>
+              <span>Select your symptoms, cycle patterns, and preferred care types.</span>
+            </div>
+          </div>
+
+          <div class="screen-showcase-card">
+            <div class="screen-crop-wrap">
+              <img src="assets/screen_dashboard.png" alt="Auvira daily cycle dashboard: Good afternoon, Maya" class="screen-img">
+            </div>
+            <div class="screen-caption">
+              <strong>Daily cycle insights</strong>
+              <span>See how your energy, sleep, and nutrition connect throughout your cycle.</span>
+            </div>
+          </div>
+
+          <div class="screen-showcase-card">
+            <div class="screen-crop-wrap">
+              <img src="assets/screen_chat.png" alt="Auvira talk it through AI companion conversation" class="screen-img">
+            </div>
+            <div class="screen-caption">
+              <strong>Talk it through</strong>
+              <span>Chat daily with Auvira to understand symptoms and prepare for specialist visits.</span>
+            </div>
+          </div>
+
+          <div class="screen-showcase-card">
+            <div class="screen-crop-wrap">
+              <img src="assets/screen_specialist.png" alt="Auvira specialist booking: Priya Nair Registered Dietitian" class="screen-img">
+            </div>
+            <div class="screen-caption">
+              <strong>Verified care team</strong>
+              <span>Book consults with PMOS-trained dietitians and doctors in Singapore.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Free Hormone Check (Pearl Background) -->
+    <section class="section section-pearl" id="screener" hidden>
+      <div class="container">
+        <div class="screener-wrapper">
+          <div class="section-header text-center">
+            <span class="eyebrow">Free hormone check</span>
+            <h2 class="section-title">Free 10-minute hormone check</h2>
+            <p class="section-desc max-w-prose">
+              A free check grounded in Rotterdam clinical criteria and calibrated for Asian metabolic thresholds. Tells you if you should get checked, and which tests to ask for.
+            </p>
+          </div>
+
+          <div class="card-pearl screener-card" id="screenerApp">
+            <!-- GPU-accelerated progress bar -->
+            <div class="screener-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" aria-label="Assessment progress">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="step-counter" id="stepCounter" aria-live="polite">Question 1 of 5</div>
+
+            <!-- Dynamic Question Container -->
+            <div class="question-container" id="questionContainer">
+              <!-- Rendered via JavaScript -->
+            </div>
+
+            <!-- Screener Navigation Buttons -->
+            <div class="screener-nav">
+              <button class="btn btn-outline" id="prevBtn" disabled>Back</button>
+              <button class="btn btn-primary" id="nextBtn">Continue</button>
+            </div>
+
+            <!-- Screener Result Container -->
+            <div class="result-container" id="resultContainer" style="display: none;" aria-live="polite">
+              <!-- Rendered via JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Care Team (Champagne Background) -->
+    <section class="section section-pearl" id="care-team">
+      <div class="container">
+        <div class="grid grid-2 items-center gap-xl">
+          <div class="team-photo-col">
+            <img src="assets/care_team.jpg" alt="Auvira multidisciplinary care team in Singapore" class="care-team-photo">
+            <div class="team-quote-badge">
+              <strong>One care coordinator</strong>
+              <p>Your single point of contact. Books, chases results, and makes sure every specialist reports back.</p>
+            </div>
+          </div>
+
+          <div class="team-accordion-col">
+            <span class="eyebrow">Your care team</span>
+            <h2 class="section-title">A dedicated care team closes the fragmentation</h2>
+            <p class="lead-text">
+              No more retold stories or conflicting advice. Your team works around one 90-day plan.
+            </p>
+
+            <div class="team-roles-accordion" id="teamRolesAccordion">
+              <div class="role-card active" data-role="doctor" tabindex="0" role="button" aria-expanded="true">
+                <div class="role-header">
+                  <span class="role-badge">Lead doctor</span>
+                  <h4>PMOS-trained GP or gynaecologist</h4>
+                  <span class="role-chevron" aria-hidden="true">▾</span>
+                </div>
+                <div class="role-details">
+                  <p>Owns diagnosis, prescribing, medical safety, and every referral. Coordinates with gynaecologists for complex cases.</p>
+                </div>
+              </div>
+
+              <div class="role-card" data-role="coordinator" tabindex="0" role="button" aria-expanded="false">
+                <div class="role-header">
+                  <span class="role-badge">Navigator</span>
+                  <h4>Care coordinator</h4>
+                  <span class="role-chevron" aria-hidden="true">▾</span>
+                </div>
+                <div class="role-details">
+                  <p>Her one point of contact. Books consults, chases results, shares summaries, and makes sure every specialist reports back.</p>
+                </div>
+              </div>
+
+              <div class="role-card" data-role="dietitian" tabindex="0" role="button" aria-expanded="false">
+                <div class="role-header">
+                  <span class="role-badge">Nutrition</span>
+                  <h4>Dietitian built for Asian diets</h4>
+                  <span class="role-chevron" aria-hidden="true">▾</span>
+                </div>
+                <div class="role-details">
+                  <p>Nutrition built for local foods. Practical hawker dining strategies, protein balancing, and glycemic stability without extreme keto.</p>
+                </div>
+              </div>
+
+              <div class="role-card" data-role="fitness" tabindex="0" role="button" aria-expanded="false">
+                <div class="role-header">
+                  <span class="role-badge">Movement</span>
+                  <h4>Cycle-synced fitness instructor</h4>
+                  <span class="role-chevron" aria-hidden="true">▾</span>
+                </div>
+                <div class="role-details">
+                  <p>Strength and movement programmed around her cycle phases, avoiding high-cortisol stress in the luteal phase.</p>
+                </div>
+              </div>
+
+              <div class="role-card" data-role="companion" tabindex="0" role="button" aria-expanded="false">
+                <div class="role-header">
+                  <span class="role-badge">Daily support</span>
+                  <h4>Health coach &amp; AI companion</h4>
+                  <span class="role-chevron" aria-hidden="true">▾</span>
+                </div>
+                <div class="role-details">
+                  <p>Weekly human habit check-ins plus daily AI personalisation. Flags unusual biometric trends directly to the care team.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Founder Note (Pearl Background) -->
+    <section class="section section-champagne" id="founder">
+      <div class="container">
+        <div class="card-pearl founder-card">
+          <div class="grid grid-2 items-center gap-xl">
+            <div class="founder-photo-col">
+              <img src="assets/founder.jpg" alt="Takshma Patel, Founder of Auvira" class="founder-portrait-img">
+              <div class="founder-caption">
+                <strong>Takshma Patel</strong>
+                <span>Founder · Former Product Manager at Visa</span>
+              </div>
+            </div>
+
+            <div class="founder-content-col">
+              <span class="eyebrow">Founder note</span>
+              <h2 class="section-title">Built from personal experience to transform women's health</h2>
+              <blockquote class="founder-quote">
+                "Women don't need more generic advice, they need personalised, verified answers and plans they can actually stick to."
+              </blockquote>
+              <div class="founder-body-text">
+                <p>
+                  Diagnosed with PMOS after experiencing irregular periods and sudden weight gain, I found traditional medical and naturopathic protocols unsustainable.
+                </p>
+                <p>
+                  I kept hearing from women all around experiencing similar struggles—uncovering a widespread pattern where women fought to understand their symptoms and get real help. I left Product Management at Visa to build Auvira and bridge this gap.
+                </p>
+              </div>
+              <div class="founder-contact-strip">
+                <a href="mailto:takshma@auvira.health" class="btn-text-link">
+                  takshma@auvira.health →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Singapore Pilot (Champagne Background) -->
+    <section class="section section-champagne" id="pilot" hidden>
+      <div class="container">
+        <div class="pilot-card-wrapper">
+          <div class="section-header text-center">
+            <span class="eyebrow">Singapore pilot</span>
+            <h2 class="section-title">Prove it with 30 to 50 women in Singapore</h2>
+            <p class="section-desc max-w-prose">
+              Join our concierge pilot with one partner clinic, a care coordinator, dietitian, fitness instructor, and coach.
+            </p>
+          </div>
+
+          <div class="card-pearl pilot-form-container">
+            <div class="card-flow-accent pilot-flow-accent" aria-hidden="true">
+              <img src="assets/auvira_flow_accent.svg" alt="" loading="lazy">
+            </div>
+            <!-- Mode Switcher -->
+            <div class="mode-chips-bar" role="tablist" aria-label="Application Type">
+              <button class="chip-tab active" id="tabPatient" role="tab" aria-selected="true" data-mode="patient">I am looking for answers</button>
+              <button class="chip-tab" id="tabClinician" role="tab" aria-selected="false" data-mode="clinician">I am a doctor or clinician</button>
+            </div>
+
+            <form class="pilot-form" id="pilotForm">
+              <div class="form-row grid grid-2">
+                <div class="form-group">
+                  <label for="fullName">Full name</label>
+                  <input type="text" id="fullName" name="fullName" placeholder="Rachel Tan" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" id="email" name="email" placeholder="rachel@example.com" required>
+                </div>
+              </div>
+
+              <div class="form-row grid grid-2">
+                <div class="form-group">
+                  <label for="phone">WhatsApp or mobile (Singapore)</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+65 9123 4567" required>
+                </div>
+                <div class="form-group" id="patientAgeGroup">
+                  <label for="ageGroup">Age group</label>
+                  <select id="ageGroup" name="ageGroup">
+                    <option value="20-25">20 – 25 years old</option>
+                    <option value="26-30" selected>26 – 30 years old</option>
+                    <option value="31-35">31 – 35 years old</option>
+                    <option value="36-40">36 – 40 years old</option>
+                    <option value="41+">41+ years old</option>
+                  </select>
+                </div>
+                <div class="form-group" id="clinicianRoleGroup" style="display: none;">
+                  <label for="clinicalRole">Specialty or clinic</label>
+                  <input type="text" id="clinicalRole" name="clinicalRole" placeholder="e.g. GP, Gynaecologist, Dietitian">
+                </div>
+              </div>
+
+              <div class="form-group" id="patientStatusGroup">
+                <span class="group-title">Current status</span>
+                <div class="chips-selector">
+                  <label class="chip-radio">
+                    <input type="radio" name="diagnosisStatus" value="suspecting" checked>
+                    <span>Experiencing symptoms, no diagnosis yet</span>
+                  </label>
+                  <label class="chip-radio">
+                    <input type="radio" name="diagnosisStatus" value="diagnosed">
+                    <span>Diagnosed with PMOS/PCOS, need ongoing care</span>
+                  </label>
+                  <label class="chip-radio">
+                    <input type="radio" name="diagnosisStatus" value="dismissed">
+                    <span>Saw doctors, but symptoms were dismissed</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="notes" id="notesLabel">What is the most frustrating part of your hormonal journey right now?</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Share your experience with irregular cycles, weight changes, acne, or doctor visits..."></textarea>
+              </div>
+
+              <div class="form-submit-row">
+                <p class="privacy-notice">Singapore PDPA compliant. Your information is confidential and never shared.</p>
+                <button type="submit" class="btn btn-primary" id="submitPilotBtn">
+                  Submit pilot application
+                </button>
+              </div>
+            </form>
+
+            <div class="pilot-success" id="pilotSuccess" style="display: none;" aria-live="polite">
+              <div class="success-swirl">
+                <img src="assets/auvira_logo_mark.png" alt="Auvira mark" class="success-mark-img">
+              </div>
+              <h3 class="success-title">Application received</h3>
+              <p class="success-desc">
+                Thank you for reaching out. Founder Takshma Patel and our care team will message you via WhatsApp or Email within 24 hours.
+              </p>
+              <a href="#screener" class="btn btn-outline" id="backToScreenerBtn">Take the free hormone check</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: FAQ (Pearl Background) -->
+    <section class="section section-pearl" id="faq">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Questions &amp; answers</span>
+          <h2 class="section-title">Frequently asked questions</h2>
+          <p class="section-desc max-w-prose">
+            Clear, transparent answers about PMOS, our care model, and our upcoming launch in Singapore.
+          </p>
+        </div>
+
+        <div class="faq-list max-w-prose" id="faqAccordion">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Why is the condition now called PMOS instead of PCOS?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                International medical societies (including RANZCOG) are adopting the term PMOS (polyendocrine metabolic ovarian syndrome). The old name pointed only at the ovaries. The real condition is hormonal and metabolic, affecting the entire body through insulin resistance and neuroendocrine signaling.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Why do Asian women need different diagnostic thresholds?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Asian women are frequently lean but insulin-resistant, with milder body hair. Universal Western BMI cut-offs tell them they are "normal", missing early warning signs even while their risk of type 2 diabetes is 4.4x higher.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Does Auvira diagnose or replace my doctor?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                No. Auvira never replaces your doctor and does not diagnose. Auvira provides your longitudinal record, connects you to PMOS-trained doctors in Singapore, and coordinates daily lifestyle support so you have verified answers and a plan you can stick to.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How much will Auvira cost?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Auvira is coming soon and pricing has not been finalised. Register your interest and we will share launch details, including pricing options, with the mailing list first.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer (Parchment Background with Cocoa Text) -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top grid grid-4">
+        <div class="footer-brand-col">
+          <div class="brand-link mb-sm">
+            <img src="assets/auvira_logo_mark.png" alt="Auvira mark" class="footer-logo-img">
+            <span class="brand-wordmark">
+              <span class="wordmark-au">Au</span><span class="wordmark-vira">vira</span>
+            </span>
+          </div>
+          <p class="footer-mission">
+            The personalised coordination layer for women’s hormonal health. Starting with PMOS in Singapore.
+          </p>
+          <div class="footer-contact">
+            <span>Direct contact:</span>
+            <a href="mailto:takshma@auvira.health" class="footer-email-link">takshma@auvira.health</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">Platform</h3>
+          <ul class="footer-links">
+            <li><a href="#why-pmos">What is PMOS?</a></li>
+            <li><a href="#asian-gap">The Asian gap</a></li>
+            <li><a href="#solution">How it works</a></li>
+            <li><a href="#app-preview">Inside the app</a></li>
+            <li hidden><a href="#screener">Free hormone check</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">Care team</h3>
+          <ul class="footer-links">
+            <li><a href="#care-team">PMOS doctors</a></li>
+            <li><a href="#care-team">Care coordinators</a></li>
+            <li><a href="#care-team">Asian nutrition</a></li>
+            <li><a href="#care-team">Cycle fitness</a></li>
+            <li hidden><a href="#pilot">Medical advisors</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">Coming soon</h3>
+          <ul class="footer-links">
+            <li hidden><a href="#pilot">Cohort 01</a></li>
+            <li><a href="#founder">Founder note</a></li>
+            <li><a href="mailto:takshma@auvira.health">Clinic partnerships</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        <p>
+          <strong>Medical notice:</strong> Auvira is a digital health coordination and educational platform. Auvira does not diagnose conditions or replace medical advice. Licensed partner physicians provide medical diagnoses and treatment plans in compliance with Singapore MOH and HCSA standards.
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Auvira Health Pte. Ltd. All rights reserved. Built in Singapore.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy policy (PDPA)</a>
+          <span class="dot-sep" aria-hidden="true">·</span>
+          <a href="#">Terms of service</a>
+          <span class="dot-sep" aria-hidden="true">·</span>
+          <a href="mailto:takshma@auvira.health">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

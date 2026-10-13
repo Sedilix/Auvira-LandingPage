@@ -1,0 +1,5 @@
+node_modules
+dist
+extracted_deck.txt
+extracted_media
+.DS_Store
