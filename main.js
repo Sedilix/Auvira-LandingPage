@@ -437,7 +437,7 @@ function initFlowPaletteToggle() {
    Submissions go to Formspree (free tier). Create a form at https://formspree.io,
    then paste its endpoint here, e.g. 'https://formspree.io/f/xxxxxxxx'.
    -------------------------------------------------------------------------- */
-const FORMSPREE_ENDPOINT = '';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xeaerykn';
 
 function initInterestForm() {
   const form = document.getElementById('interestForm');
@@ -452,7 +452,12 @@ function initInterestForm() {
   }
 
   const show = (msg, cls) => {
-    note.textContent = msg;
+    const textEl = note.querySelector('.note-text');
+    if (textEl) {
+      textEl.textContent = msg;
+    } else {
+      note.textContent = msg;
+    }
     note.classList.remove('is-error', 'is-success');
     if (cls) note.classList.add(cls);
   };
