@@ -35,29 +35,9 @@
     <section class="hero-section" id="hero">
       <div class="hero-aura-glow" aria-hidden="true"></div>
 
-      <!-- Whispy Cyclical Movement Aura Spirals (Mimics cyclical movement softly in champagne/gold) -->
+      <!-- Procedural Animated Wispy Aura Streaks (Replaces dashed lines with flowing light filaments) -->
       <div class="hero-whispy-spirals" aria-hidden="true">
-        <svg class="whispy-spiral-svg" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="400" cy="400" rx="360" ry="220" stroke="url(#spiralGoldGrad)" stroke-width="1.2" stroke-dasharray="14 18" class="spiral-orbit-1" transform="rotate(-18 400 400)"/>
-          <ellipse cx="400" cy="400" rx="280" ry="170" stroke="url(#spiralAuraGrad)" stroke-width="1.5" stroke-dasharray="8 14" class="spiral-orbit-2" transform="rotate(24 400 400)"/>
-          <ellipse cx="400" cy="400" rx="190" ry="120" stroke="url(#spiralPeachGrad)" stroke-width="1.2" stroke-dasharray="6 12" class="spiral-orbit-3" transform="rotate(-35 400 400)"/>
-          <defs>
-            <linearGradient id="spiralGoldGrad" x1="0" y1="0" x2="800" y2="800" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#E8BE5E" stop-opacity="0.45"/>
-              <stop offset="50%" stop-color="#FD9E39" stop-opacity="0.25"/>
-              <stop offset="100%" stop-color="#7A4E17" stop-opacity="0"/>
-            </linearGradient>
-            <linearGradient id="spiralAuraGrad" x1="800" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#FFD86B" stop-opacity="0.45"/>
-              <stop offset="60%" stop-color="#EEA09C" stop-opacity="0.25"/>
-              <stop offset="100%" stop-color="#FBF4E6" stop-opacity="0"/>
-            </linearGradient>
-            <linearGradient id="spiralPeachGrad" x1="200" y1="200" x2="600" y2="600" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#FD9E39" stop-opacity="0.5"/>
-              <stop offset="100%" stop-color="#C8932E" stop-opacity="0.08"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <canvas id="heroWispyCanvas" class="hero-wispy-canvas"></canvas>
       </div>
 
       <div class="container hero-container">

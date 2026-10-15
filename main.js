@@ -5,6 +5,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initWispyStreaks();
   initScreenerApp();
   initTeamAccordion();
   initFaqAccordion();
@@ -507,3 +508,254 @@ function initInterestForm() {
     }
   });
 }
+
+/* --------------------------------------------------------------------------
+   8. PROCEDURAL ANIMATED WISPY AURA STREAKS
+   Replaces mechanical dashed SVG lines with smooth, breathing light filaments
+   flowing in cyclical harmony around the hero visual.
+   -------------------------------------------------------------------------- */
+function initWispyStreaks() {
+  const canvas = document.getElementById('heroWispyCanvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  let width = 0;
+  let height = 0;
+  let cx = 0;
+  let cy = 0;
+  let dpr = 1;
+  let animId = null;
+  let isVisible = true;
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = canvas.getBoundingClientRect();
+    width = rect.width;
+    height = rect.height;
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    cx = width * 0.5;
+    cy = height * 0.5;
+  }
+
+  // 11 Layered Procedural Wispy Filaments orbiting gracefully in the Sunset Aura
+  const filaments = [
+    // Outer Ethereal Sweeps
+    {
+      baseRx: 420, baseRy: 260, rot: -0.28,
+      speed: 0.0008, angle: 0.6, arcLen: 1.6, width: 2.0,
+      breatheSpeed: 0.5, breatheAmp: 16, phase: 0.2,
+      glowColor: 'rgba(255, 216, 107, 0.4)', glowBlur: 14
+    },
+    {
+      baseRx: 385, baseRy: 240, rot: 0.35,
+      speed: -0.0009, angle: 3.4, arcLen: 1.35, width: 1.8,
+      breatheSpeed: 0.6, breatheAmp: 14, phase: 1.9,
+      glowColor: 'rgba(238, 160, 156, 0.35)', glowBlur: 12
+    },
+    {
+      baseRx: 355, baseRy: 215, rot: -0.45,
+      speed: 0.0013, angle: 1.8, arcLen: 1.5, width: 2.4,
+      breatheSpeed: 0.7, breatheAmp: 12, phase: 3.6,
+      glowColor: 'rgba(253, 158, 57, 0.45)', glowBlur: 16
+    },
+
+    // Mid-Orbit Harmony
+    {
+      baseRx: 315, baseRy: 195, rot: 0.20,
+      speed: -0.0012, angle: 5.1, arcLen: 1.25, width: 2.0,
+      breatheSpeed: 0.8, breatheAmp: 11, phase: 5.1,
+      glowColor: 'rgba(255, 241, 196, 0.6)', glowBlur: 13
+    },
+    {
+      baseRx: 280, baseRy: 170, rot: -0.15,
+      speed: 0.0016, angle: 2.9, arcLen: 1.4, width: 2.2,
+      breatheSpeed: 0.85, breatheAmp: 10, phase: 2.4,
+      glowColor: 'rgba(232, 190, 94, 0.45)', glowBlur: 14
+    },
+    {
+      baseRx: 250, baseRy: 155, rot: 0.50,
+      speed: -0.0015, angle: 0.4, arcLen: 1.3, width: 1.9,
+      breatheSpeed: 0.95, breatheAmp: 9, phase: 4.2,
+      glowColor: 'rgba(238, 160, 156, 0.38)', glowBlur: 12
+    },
+    {
+      baseRx: 220, baseRy: 135, rot: -0.62,
+      speed: 0.0019, angle: 4.4, arcLen: 1.55, width: 2.5,
+      breatheSpeed: 1.05, breatheAmp: 8, phase: 0.9,
+      glowColor: 'rgba(253, 158, 57, 0.5)', glowBlur: 15
+    },
+
+    // Inner Concentrated Glow (closer to the swirl emblem)
+    {
+      baseRx: 185, baseRy: 115, rot: 0.12,
+      speed: -0.0022, angle: 1.5, arcLen: 1.45, width: 2.1,
+      breatheSpeed: 1.2, breatheAmp: 7, phase: 3.0,
+      glowColor: 'rgba(255, 216, 107, 0.55)', glowBlur: 12
+    },
+    {
+      baseRx: 155, baseRy: 95, rot: -0.38,
+      speed: 0.0025, angle: 3.8, arcLen: 1.6, width: 2.3,
+      breatheSpeed: 1.35, breatheAmp: 6, phase: 5.7,
+      glowColor: 'rgba(255, 241, 196, 0.7)', glowBlur: 14
+    },
+    {
+      baseRx: 130, baseRy: 80, rot: 0.30,
+      speed: -0.0028, angle: 0.1, arcLen: 1.35, width: 1.8,
+      breatheSpeed: 1.5, breatheAmp: 5, phase: 1.4,
+      glowColor: 'rgba(253, 158, 57, 0.48)', glowBlur: 11
+    },
+    {
+      baseRx: 340, baseRy: 205, rot: 0.05,
+      speed: 0.0011, angle: 2.0, arcLen: 1.2, width: 1.7,
+      breatheSpeed: 0.75, breatheAmp: 10, phase: 4.8,
+      glowColor: 'rgba(238, 160, 156, 0.32)', glowBlur: 11
+    }
+  ];
+
+  // 36 Floating golden dust specks
+  const specks = Array.from({ length: 36 }, (_, i) => ({
+    orbitIndex: i % filaments.length,
+    offsetAngle: (i * 0.35) % (Math.PI * 2),
+    radialDrift: (Math.random() - 0.5) * 26,
+    size: Math.random() * 1.5 + 0.7,
+    pulseSpeed: Math.random() * 1.5 + 0.7,
+    phase: Math.random() * Math.PI * 2
+  }));
+
+  let time = 0;
+
+  function render() {
+    if (!isVisible) {
+      animId = requestAnimationFrame(render);
+      return;
+    }
+
+    time += 0.012;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.save();
+    ctx.scale(dpr, dpr);
+
+    // Render each wispy filament
+    filaments.forEach((f) => {
+      f.angle += f.speed;
+
+      // Radial pulsation (breathing effect)
+      const rx = f.baseRx + Math.sin(time * f.breatheSpeed + f.phase) * f.breatheAmp;
+      const ry = f.baseRy + Math.cos(time * f.breatheSpeed + f.phase) * (f.breatheAmp * 0.6);
+
+      const cosRot = Math.cos(f.rot);
+      const sinRot = Math.sin(f.rot);
+
+      const steps = 36;
+      const points = [];
+
+      for (let i = 0; i <= steps; i++) {
+        const u = i / steps;
+        const currentAngle = f.angle + u * f.arcLen;
+
+        const ex = rx * Math.cos(currentAngle);
+        const ey = ry * Math.sin(currentAngle);
+
+        const x = cx + ex * cosRot - ey * sinRot;
+        const y = cy + ex * sinRot + ey * cosRot;
+
+        points.push({ x, y });
+      }
+
+      if (points.length < 2) return;
+
+      const pStart = points[0];
+      const pEnd = points[points.length - 1];
+
+      // Linear gradient along the wisp: 0% -> Sunlit -> Gleam Core -> Amber -> 0%
+      const grad = ctx.createLinearGradient(pStart.x, pStart.y, pEnd.x, pEnd.y);
+      grad.addColorStop(0, 'rgba(255, 216, 107, 0)');
+      grad.addColorStop(0.18, 'rgba(255, 216, 107, 0.45)');
+      grad.addColorStop(0.50, 'rgba(255, 241, 196, 0.90)');
+      grad.addColorStop(0.82, 'rgba(253, 158, 57, 0.55)');
+      grad.addColorStop(1, 'rgba(238, 160, 156, 0)');
+
+      // Pass 1: Soft Ambient Halo (Glow)
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+      for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(points[i].x, points[i].y);
+      }
+      ctx.lineWidth = f.width * 2.8;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = grad;
+      ctx.shadowColor = f.glowColor;
+      ctx.shadowBlur = f.glowBlur;
+      ctx.globalAlpha = 0.35;
+      ctx.stroke();
+
+      // Pass 2: Razor Core Filament
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+      for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(points[i].x, points[i].y);
+      }
+      ctx.lineWidth = f.width;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = grad;
+      ctx.shadowBlur = 4;
+      ctx.globalAlpha = 0.85;
+      ctx.stroke();
+
+      ctx.globalAlpha = 1.0;
+      ctx.shadowBlur = 0;
+    });
+
+    // Render floating golden dust specks
+    specks.forEach((s) => {
+      const f = filaments[s.orbitIndex];
+      const angle = f.angle + s.offsetAngle;
+      const rx = f.baseRx + s.radialDrift;
+      const ry = f.baseRy + s.radialDrift * 0.6;
+
+      const cosRot = Math.cos(f.rot);
+      const sinRot = Math.sin(f.rot);
+
+      const ex = rx * Math.cos(angle);
+      const ey = ry * Math.sin(angle);
+
+      const x = cx + ex * cosRot - ey * sinRot;
+      const y = cy + ex * sinRot + ey * cosRot;
+
+      const pulse = 0.35 + 0.55 * Math.sin(time * s.pulseSpeed + s.phase);
+
+      ctx.beginPath();
+      ctx.arc(x, y, s.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 241, 196, ${pulse * 0.75})`;
+      ctx.shadowColor = 'rgba(253, 158, 57, 0.4)';
+      ctx.shadowBlur = 6;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    });
+
+    ctx.restore();
+    animId = requestAnimationFrame(render);
+  }
+
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+
+  // Pause when scrolled off-screen or tab hidden for battery efficiency
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    }, { threshold: 0.05 });
+    observer.observe(canvas);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    isVisible = !document.hidden;
+  });
+
+  animId = requestAnimationFrame(render);
+}
+
