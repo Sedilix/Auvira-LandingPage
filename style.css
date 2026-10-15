@@ -228,32 +228,42 @@ button, input, select, textarea {
   box-shadow: 0 3px 12px rgba(122, 78, 23, 0.16);
 }
 
-/* Official Two-Tone Wordmark (Page 2) */
+/* ==========================================================================
+   SOLID DEEP GOLD WORDMARK (Official Choice)
+   Editorial restraint, maximum contrast on champagne, Cormorant Garamond 600 italic
+   ========================================================================== */
 .brand-wordmark {
   font-family: var(--font-heading);
   font-style: italic;
   font-weight: 600;
-  font-size: 2.05rem;
+  font-size: 2.15rem;
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   display: inline-flex;
+  align-items: center;
   white-space: nowrap;
+  color: var(--deep-gold);
+  background: none;
+  -webkit-text-fill-color: var(--deep-gold);
+  filter: none;
+  transition: color 0.2s ease;
+  user-select: none;
 }
 
-.wordmark-au {
-  background: linear-gradient(135deg, #F5A623 0%, #FD9E39 35%, #E8742A 70%, #D9661F 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
+.brand-link:hover .brand-wordmark {
+  color: var(--deep-gold-hover);
+  -webkit-text-fill-color: var(--deep-gold-hover);
 }
 
+/* Fallback/compatibility in case nested spans are ever present */
+.wordmark-au,
 .wordmark-vira {
-  background: linear-gradient(135deg, #7A4E17 0%, #A06A22 25%, #C8932E 50%, #8A5A1C 75%, #A06A22 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  display: inline !important;
 }
 
 .nav-menu {
