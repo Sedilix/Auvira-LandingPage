@@ -703,6 +703,24 @@ button, input, select, textarea {
   height: 140px;
   object-fit: contain;
   display: block;
+  animation: heroSwirlRotateClockwise 72s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes heroSwirlRotateClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-swirl-img {
+    animation: none;
+  }
 }
 
 .hero-app-card {
