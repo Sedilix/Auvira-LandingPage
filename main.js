@@ -499,7 +499,12 @@ function initInterestForm() {
       });
       if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
       form.reset();
-      show("Thank you. You're on the list, and we'll be in touch when Auvira launches.", 'is-success');
+      triggerAuraCelebration(btn);
+      if (typeof window.pulseWispyAura === 'function') window.pulseWispyAura();
+      btn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:6px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Registered</span>';
+      btn.classList.add('is-success-btn');
+      form.classList.add('is-success-form');
+      show("Thank you. You're on the priority list, and we'll personally invite you as soon as our Singapore care team opens.", 'is-success', '✦ Priority Invite Confirmed');
     } catch (err) {
       console.error(err);
       show('Something went wrong. Please try again in a moment.', 'is-error');
@@ -507,6 +512,155 @@ function initInterestForm() {
       btn.disabled = false;
     }
   });
+}
+
+/* --------------------------------------------------------------------------
+   REWARDING REGISTRATION AURA CELEBRATION
+   Spawns floating golden stardust sparks, sunlit embers, and expanding aura rings
+   -------------------------------------------------------------------------- */
+function triggerAuraCelebration(originEl) {
+  const rect = originEl ? originEl.getBoundingClientRect() : { left: window.innerWidth / 2, top: window.innerHeight / 2, width: 0, height: 0 };
+  const originX = rect.left + rect.width / 2;
+  const originY = rect.top + rect.height / 2;
+
+  const canvas = document.createElement('canvas');
+  canvas.className = 'celebration-canvas';
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  canvas.width = Math.round(window.innerWidth * dpr);
+  canvas.height = Math.round(window.innerHeight * dpr);
+  ctx.scale(dpr, dpr);
+
+  // Palette: Official Auvira Sunset Aura & Gold Divinity
+  const colors = [
+    '#FFF1C4', // Gleam
+    '#FFD86B', // Sunlit
+    '#E8BE5E', // Honey
+    '#C8932E', // Hero Gold
+    '#FD9E39', // Sunset Amber
+    '#EEA09C'  // Blush
+  ];
+
+  // 1. Particle Sparks & Embers
+  const particles = [];
+  const count = 65;
+
+  for (let i = 0; i < count; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const speed = Math.random() * 6.5 + 2.5;
+    const isStar = Math.random() > 0.42;
+    particles.push({
+      x: originX,
+      y: originY,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed - 2.8,
+      size: isStar ? (Math.random() * 4.5 + 3.0) : (Math.random() * 3.5 + 1.5),
+      color: colors[Math.floor(Math.random() * colors.length)],
+      isStar,
+      rot: Math.random() * Math.PI,
+      spin: (Math.random() - 0.5) * 0.15,
+      life: 0,
+      maxLife: Math.random() * 45 + 75
+    });
+  }
+
+  // 2. Expanding Aura Shockwave Rings
+  const rings = [
+    { r: 4, maxR: 95, color: '#FFD86B', alpha: 0.85, width: 2.5 },
+    { r: 2, maxR: 140, color: '#FD9E39', alpha: 0.65, width: 1.8 }
+  ];
+
+  function drawStar(ctx, x, y, r, angle, color, alpha) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(angle);
+    ctx.fillStyle = color;
+    ctx.globalAlpha = alpha;
+    ctx.beginPath();
+    for (let i = 0; i < 4; i++) {
+      ctx.lineTo(Math.cos(i * Math.PI / 2) * r, Math.sin(i * Math.PI / 2) * r);
+      ctx.lineTo(Math.cos(i * Math.PI / 2 + Math.PI / 4) * (r * 0.28), Math.sin(i * Math.PI / 2 + Math.PI / 4) * (r * 0.28));
+    }
+    ctx.closePath();
+    ctx.shadowColor = color;
+    ctx.shadowBlur = 8;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  let animId;
+  function animate() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+    // Draw Expanding Rings
+    let activeRings = false;
+    rings.forEach((ring) => {
+      if (ring.r < ring.maxR) {
+        activeRings = true;
+        ring.r += 2.8;
+        const progress = ring.r / ring.maxR;
+        const currentAlpha = ring.alpha * (1.0 - progress);
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(originX, originY, ring.r, 0, Math.PI * 2);
+        ctx.strokeStyle = ring.color;
+        ctx.lineWidth = ring.width * (1.0 - progress * 0.5);
+        ctx.globalAlpha = currentAlpha;
+        ctx.shadowColor = ring.color;
+        ctx.shadowBlur = 10;
+        ctx.stroke();
+        ctx.restore();
+      }
+    });
+
+    // Draw & Update Particles
+    let activeParticles = false;
+    particles.forEach((p) => {
+      p.life++;
+      if (p.life < p.maxLife) {
+        activeParticles = true;
+
+        p.vx *= 0.965;
+        p.vy *= 0.965;
+        p.vy -= 0.035;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.spin;
+
+        const progress = p.life / p.maxLife;
+        const alpha = Math.sin((1.0 - progress) * (Math.PI / 2));
+
+        if (p.isStar) {
+          drawStar(ctx, p.x, p.y, p.size * (1.0 - progress * 0.2), p.rot, p.color, alpha);
+        } else {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = alpha * 0.85;
+          ctx.shadowColor = p.color;
+          ctx.shadowBlur = 6;
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+    });
+
+    if (activeRings || activeParticles) {
+      animId = requestAnimationFrame(animate);
+    } else {
+      cancelAnimationFrame(animId);
+      if (canvas.parentNode) {
+        canvas.parentNode.removeChild(canvas);
+      }
+    }
+  }
+
+  animate();
 }
 
 /* --------------------------------------------------------------------------
@@ -626,6 +780,19 @@ function initWispyStreaks() {
   }));
 
   let time = 0;
+  let surgeSpeed = 1.0;
+  let targetSurgeSpeed = 1.0;
+  let surgeGlow = 1.0;
+  let targetSurgeGlow = 1.0;
+
+  window.pulseWispyAura = () => {
+    targetSurgeSpeed = 2.8;
+    targetSurgeGlow = 2.2;
+    setTimeout(() => {
+      targetSurgeSpeed = 1.0;
+      targetSurgeGlow = 1.0;
+    }, 2800);
+  };
 
   function render() {
     if (!isVisible) {
@@ -633,7 +800,10 @@ function initWispyStreaks() {
       return;
     }
 
-    time += 0.012;
+    surgeSpeed += (targetSurgeSpeed - surgeSpeed) * 0.05;
+    surgeGlow += (targetSurgeGlow - surgeGlow) * 0.05;
+
+    time += 0.012 * surgeSpeed;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ctx.save();
@@ -641,7 +811,7 @@ function initWispyStreaks() {
 
     // Render each wispy filament
     filaments.forEach((f) => {
-      f.angle += f.speed;
+      f.angle += f.speed * surgeSpeed;
 
       // Radial pulsation (breathing effect)
       const rx = f.baseRx + Math.sin(time * f.breatheSpeed + f.phase) * f.breatheAmp;
@@ -689,7 +859,7 @@ function initWispyStreaks() {
       ctx.lineCap = 'round';
       ctx.strokeStyle = grad;
       ctx.shadowColor = f.glowColor;
-      ctx.shadowBlur = f.glowBlur;
+      ctx.shadowBlur = f.glowBlur * surgeGlow;
       ctx.globalAlpha = 0.35;
       ctx.stroke();
 
