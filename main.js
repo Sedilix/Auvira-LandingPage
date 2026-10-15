@@ -451,12 +451,22 @@ function initInterestForm() {
     headerBtn.addEventListener('click', () => setTimeout(() => input.focus(), 400));
   }
 
-  const show = (msg, cls) => {
+  const show = (msg, cls, pillText) => {
     const textEl = note.querySelector('.note-text');
+    const pillEl = note.querySelector('.note-pill');
     if (textEl) {
       textEl.textContent = msg;
     } else {
       note.textContent = msg;
+    }
+    if (pillEl) {
+      if (cls === 'is-success') {
+        pillEl.textContent = pillText || 'Interest registered';
+      } else if (cls === 'is-error') {
+        pillEl.textContent = pillText || 'Notice';
+      } else {
+        pillEl.textContent = pillText || 'Coming soon to Singapore';
+      }
     }
     note.classList.remove('is-error', 'is-success');
     if (cls) note.classList.add(cls);
