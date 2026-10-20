@@ -703,7 +703,7 @@ button, input, select, textarea {
   height: 140px;
   object-fit: contain;
   display: block;
-  animation: heroSwirlRotateClockwise 72s linear infinite;
+  animation: heroSwirlRotateClockwise 36s linear infinite;
   transform-origin: center center;
   will-change: transform;
 }
