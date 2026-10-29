@@ -1,0 +1,14 @@
+{
+  "name": "Auvira",
+  "short_name": "Auvira",
+  "description": "The personalised coordination layer for women's hormonal health. Starting with PMOS in Singapore.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FBF4E6",
+  "theme_color": "#FBF4E6",
+  "lang": "en-SG",
+  "icons": [
+    { "src": "assets/logo/app-icon/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/logo/app-icon/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

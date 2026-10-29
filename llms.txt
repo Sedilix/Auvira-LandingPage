@@ -1,0 +1,35 @@
+# Auvira
+
+> Auvira is a Singapore-based hormonal health platform for women. It connects cycle tracking, symptoms and wearable biometrics with an AI health companion and a coordinated care team. Its first specialist programme is for PMOS (polyendocrine metabolic ovarian syndrome, the condition formerly known as polycystic ovary syndrome or PCOS). Auvira is coming soon to Singapore.
+
+Auvira does not diagnose conditions or replace a doctor. It gives women insights and a starting point, and helps them reach the right specialist. Diagnoses and treatment plans come from licensed partner physicians in Singapore.
+
+## Key facts
+
+- Name: Auvira (from aura, "light", and veritas, "truth")
+- Company: Auvira Health Pte. Ltd., Singapore
+- Founder: Takshma Patel, former product manager at Visa
+- Website: https://auvira.health/
+- Contact: takshma@auvira.health
+- Market: Singapore (launching with a small pilot group of women)
+- Status: Pre-launch; register interest at https://auvira.health/
+- First programme: PMOS (formerly PCOS)
+
+## What Auvira does
+
+- Connects daily biometrics (for example sleep and resting heart rate from Garmin wearables) with cycle phase and logged symptoms
+- Surfaces patterns worth discussing with a clinician, such as fatigue that does not follow the cycle
+- Coordinates a care team under one shared plan: a lead physician, a care coordinator (single point of contact), a dietitian who understands Asian and hawker diets, and a cycle-aware movement coach
+- Supports women day to day through an AI health companion
+
+## Who it is for
+
+Women in Singapore navigating hormonal change, with or without a diagnosis. Common signs include irregular or missed periods, jawline acne, unwanted hair growth, unexplained weight changes and ongoing fatigue.
+
+## About PMOS
+
+PMOS stands for polyendocrine metabolic ovarian syndrome. It is the new name for polycystic ovary syndrome (PCOS), announced in May 2026, reflecting that the condition affects hormones and metabolism, not just the ovaries. The diagnostic criteria have not changed.
+
+## Pages
+
+- [Home and FAQ](https://auvira.health/): Overview, care team preview and answers to common questions

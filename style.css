@@ -2116,6 +2116,18 @@ button, input, select, textarea {
   display: block;
 }
 
+.faq-heading {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
 /* ==========================================================================
    FOOTER (Page 8: Cocoa text on parchment #F3E3C3)
    ========================================================================== */

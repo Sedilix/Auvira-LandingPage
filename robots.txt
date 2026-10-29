@@ -1,0 +1,25 @@
+# Auvira — https://auvira.health
+# Search engines and AI answer engines are welcome to index the public landing page.
+
+User-agent: *
+Allow: /
+Disallow: /DESIGN.md
+Disallow: /PRODUCT.md
+
+# AI search and answer engines (explicitly allowed for GEO/AEO visibility)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+Allow: /
+Disallow: /DESIGN.md
+Disallow: /PRODUCT.md
+
+Sitemap: https://auvira.health/sitemap.xml
